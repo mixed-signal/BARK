@@ -1,0 +1,11 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1743229828" />
+    <testcase name="add_test" classname="test_alu" file="/foss/designs/tb/alu/test_alu.py" lineno="11" time="0.01411294937133789" sim_time_ns="1001.001" ratio_time="70927.83894151435" />
+    <testcase name="and_test" classname="test_alu" file="/foss/designs/tb/alu/test_alu.py" lineno="24" time="0.014018058776855469" sim_time_ns="1001.001" ratio_time="71407.96139710184" />
+    <testcase name="or_test" classname="test_alu" file="/foss/designs/tb/alu/test_alu.py" lineno="37" time="0.013823747634887695" sim_time_ns="1001.0010000000002" ratio_time="72411.69518124904" />
+    <testcase name="sub_test" classname="test_alu" file="/foss/designs/tb/alu/test_alu.py" lineno="50" time="0.015781641006469727" sim_time_ns="1001.0009999999997" ratio_time="63428.19479860407" />
+    <testcase name="xor_test" classname="test_alu" file="/foss/designs/tb/alu/test_alu.py" lineno="115" time="0.014003753662109375" sim_time_ns="1001.0010000000002" ratio_time="71480.90605938438" />
+    <testcase name="zero_test" classname="test_alu" file="/foss/designs/tb/alu/test_alu.py" lineno="200" time="7.915496826171875e-05" sim_time_ns="2.0010000000002037" ratio_time="25279.525012050766" />
+  </testsuite>
+</testsuites>

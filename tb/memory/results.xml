@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1743326556" />
+    <testcase name="memory_data_test" classname="test_memory" file="/foss/designs/tb/memory/test_memory.py" lineno="26" time="0.002536296844482422" sim_time_ns="77.001" ratio_time="30359.616685843204" />
+  </testsuite>
+</testsuites>

@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1743321231" />
+    <testcase name="regfile_test" classname="test_register_file" file="/foss/designs/tb/register_file/test_register_file.py" lineno="7" time="0.06470823287963867" sim_time_ns="10032.001" ratio_time="155034.38362565308" />
+  </testsuite>
+</testsuites>

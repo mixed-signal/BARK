@@ -1,0 +1,31 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1739203421" />
+    <testcase name="add_test" classname="test_alu" file="/foss/designs/tb/test_alu.py" lineno="15" time="0.014842033386230469" sim_time_ns="1001.001" ratio_time="67443.656401465" />
+    <testcase name="and_test" classname="test_alu" file="/foss/designs/tb/test_alu.py" lineno="30" time="0.014241695404052734" sim_time_ns="1001.001" ratio_time="70286.64576797133" />
+    <testcase name="or_test" classname="test_alu" file="/foss/designs/tb/test_alu.py" lineno="44" time="0.01432180404663086" sim_time_ns="1001.0010000000002" ratio_time="69893.49922264027" />
+    <testcase name="sub_test" classname="test_alu" file="/foss/designs/tb/test_alu.py" lineno="58" time="0.016537904739379883" sim_time_ns="1001.0009999999997" ratio_time="60527.67964108699" />
+    <testcase name="slt_test" classname="test_alu" file="/foss/designs/tb/test_alu.py" lineno="80" time="0.00011754035949707031" sim_time_ns="2.0010000000002037" ratio_time="17023.939764707615">
+      <failure message="Test failed with RANDOM_SEED=1739203421" />
+    </testcase>
+    <testcase name="sltu_test" classname="test_alu" file="/foss/designs/tb/test_alu.py" lineno="108" time="0.015283346176147461" sim_time_ns="1001.0010000000002" ratio_time="65496.19359942594" />
+    <testcase name="xor_test" classname="test_alu" file="/foss/designs/tb/test_alu.py" lineno="123" time="8.940696716308594e-05" sim_time_ns="2.0009999999992942" ratio_time="22380.806143992108">
+      <failure message="Test failed with RANDOM_SEED=1739203421" />
+    </testcase>
+    <testcase name="sll_test" classname="test_alu" file="/foss/designs/tb/test_alu.py" lineno="138" time="8.654594421386719e-05" sim_time_ns="2.0010000000002037" ratio_time="23120.667504134584">
+      <failure message="Test failed with RANDOM_SEED=1739203421" />
+    </testcase>
+    <testcase name="srl_test" classname="test_alu" file="/foss/designs/tb/test_alu.py" lineno="154" time="8.344650268554688e-05" sim_time_ns="2.0010000000002037" ratio_time="23979.435154288156">
+      <failure message="Test failed with RANDOM_SEED=1739203421" />
+    </testcase>
+    <testcase name="sra_test" classname="test_alu" file="/foss/designs/tb/test_alu.py" lineno="173" time="7.486343383789062e-05" sim_time_ns="2.0010000000002037" ratio_time="26728.669757964504">
+      <failure message="Test failed with RANDOM_SEED=1739203421" />
+    </testcase>
+    <testcase name="zero_test" classname="test_alu" file="/foss/designs/tb/test_alu.py" lineno="208" time="7.62939453125e-05" sim_time_ns="2.0010000000002037" ratio_time="26227.50720000267">
+      <failure message="Test failed with RANDOM_SEED=1739203421" />
+    </testcase>
+    <testcase name="last_bit_test" classname="test_alu" file="/foss/designs/tb/test_alu.py" lineno="219" time="8.678436279296875e-05" sim_time_ns="2.0009999999992942" ratio_time="23057.149186805054">
+      <failure message="Test failed with RANDOM_SEED=1739203421" />
+    </testcase>
+  </testsuite>
+</testsuites>

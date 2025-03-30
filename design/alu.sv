@@ -4,6 +4,7 @@ module alu (
     input logic [31:0] alu_control,
     input logic [31:0] operand1,
     input logic [31:0] operand2,
+    input logic [4:0] shamt,
 
     output logic [31:0] alu_result
 );

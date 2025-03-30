@@ -5,8 +5,16 @@ module controller #(
     input logic reset,
     input logic [6:0] opcode,
     input logic [2:0] funct3,
+    input logic [6:0] funct7,
 
     output logic [31:0] alu_control,
+    output logic alu_a_sel,
+    output logic alu_b_sel,
+    output logic mem_clk,
+    output logic pc_alu_sel,
+    output logic pc_next_sel,
+    output logic pc_clk,
+
     
 );
 
