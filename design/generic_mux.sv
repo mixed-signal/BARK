@@ -6,6 +6,6 @@ module generic_mux(
     output logic [31:0] q
 );
 
-assign q = (q == 1'b1) ? i1 : i0;
+assign q = (a0 == 2'b1) ? i1 : i0;
     
 endmodule

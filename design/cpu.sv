@@ -13,7 +13,12 @@ logic [6:0] opcode;
 logic [4:0] rs1;
 logic [4:0] rs2;
 logic [4:0] rd;
+logic [31:0] reg_data_in;
+logic [31:0] reg_data_out_1;
+logic [31:0] reg_data_out_2;
 logic [2:0] funct3;
+logic [6:0]funct7;
+logic [24:0]immi_source;
 logic [31:0] alu_control;
 logic alu_a_sel;
 logic alu_b_sel;
@@ -26,6 +31,8 @@ logic mem_clk;
 logic pc_alu_sel;
 logic pc_next_sel;
 logic pc_clk;
+logic [31:0] immi_x;
+logic [1:0]reg_data_sel;
 
 
 /*
@@ -93,7 +100,8 @@ instruction_decoder instruction_decoder(
     .rs2(rs2),
     .rd(rd),
     .funct3(funct3),
-    .funct7(funct7)
+    .funct7(funct7),
+    .immi_source(immi_source)
 );
 
 /*
@@ -109,12 +117,41 @@ controller controller(
     .alu_control(alu_control),
     .alu_a_sel(alu_a_sel),
     .alu_b_sel(alu_b_sel),
-    .mem_clk(mem_clk)
-    .pc_alu_sel(pc_alu_sel)
-    .pc_next_sel(pc_next_sel)
-    .pc_clk(pc_clk)
+    .mem_clk(mem_clk),
+    .pc_alu_sel(pc_alu_sel),
+    .pc_next_sel(pc_next_sel),
+    .pc_clk(pc_clk),
+    .reg_data_a_sel(reg_data_a_sel),
 
 );
+
+// REG_DATA_IN MUX
+generic_mux_two reg_data_mux(
+    .io(pc_alu_result),
+    .i1(alu_result),
+    .i2(32'd0),
+    .i3(data_read)
+    .a0(reg_data_sel),
+
+    .q(reg_data_in)
+);
+
+/*
+// REGFILE
+*/
+register_file register_file(
+.clk(clk),
+.write_enable(reg_clk),
+.rs1(rs1),
+.rs2(rs2),
+.rd(rd),
+.reg_data_in(reg_data_in),
+.reset(reset),
+
+.reg_data_out_1(reg_data_out_1),
+.reg_data_out_2(reg_data_out_2)
+);
+
 // ALU MUX - can be removed if program counter is optimised.
 generic_mux alu_mux_1(
     .i0(reg_data_out_1),
