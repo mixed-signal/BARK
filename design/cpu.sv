@@ -1,8 +1,8 @@
-module cpu #(
-    parameters
-) (
+`timescale 1ns/1ps
+
+module cpu (
     input logic clk, 
-    input logic reset,
+    input logic reset
 );
 
 
@@ -22,8 +22,8 @@ logic [24:0]immi_source;
 logic [31:0] alu_control;
 logic alu_a_sel;
 logic alu_b_sel;
-logic [31:0] operand1,
-logic [31:0] operand2,
+logic [31:0] operand1;
+logic [31:0] operand2;
 logic alu_result;
 logic [31:0] pc_alu_result;
 logic [31:0] pc_next_result;
@@ -31,15 +31,15 @@ logic mem_clk;
 logic pc_alu_sel;
 logic pc_next_sel;
 logic pc_clk;
-logic [31:0] immi_x;
+logic [31:0] imm_x;
 logic [1:0]reg_data_sel;
 
 
 /*
 // PROGRAM COUNTER
 */
-generic_mux (
-    .io(imm_x),
+generic_mux mux_1(
+    .i0(imm_x),
     .i1(32'd4),
     .a0(pc_alu_sel),
 
@@ -50,8 +50,8 @@ always_comb begin
     pc_next = pc + pc_alu_result;    
 end
 
-generic_mux (
-    .io(pc_next),
+generic_mux mux_2(
+    .i0(pc_next),
     .i1(alu_result),
     .a0(pc_next_sel),
 
@@ -108,7 +108,7 @@ instruction_decoder instruction_decoder(
 // CONTROLLER
 */
 controller controller(
-    .clk(clk),
+    .clock(clk),
     .reset(reset),
     .opcode(opcode),
     .funct3(funct3),
@@ -121,16 +121,15 @@ controller controller(
     .pc_alu_sel(pc_alu_sel),
     .pc_next_sel(pc_next_sel),
     .pc_clk(pc_clk),
-    .reg_data_a_sel(reg_data_a_sel),
-
+    .reg_data_sel(reg_data_sel)
 );
 
 // REG_DATA_IN MUX
 generic_mux_two reg_data_mux(
-    .io(pc_alu_result),
+    .i0(pc_alu_result),
     .i1(alu_result),
     .i2(32'd0),
-    .i3(data_read)
+    .i3(data_read),
     .a0(reg_data_sel),
 
     .q(reg_data_in)
@@ -150,6 +149,12 @@ register_file register_file(
 
 .reg_data_out_1(reg_data_out_1),
 .reg_data_out_2(reg_data_out_2)
+);
+
+sign_extender sign_extender(
+    .immi_source(immi_source),
+    .opcode(opcode),
+    .imm_x(imm_x)
 );
 
 // ALU MUX - can be removed if program counter is optimised.
@@ -176,10 +181,10 @@ alu alu(
     .alu_control(alu_control),
     .operand1(operand1),
     .operand2(operand2),
-    .shamt(imm_x[4:0])
+    .shamt(imm_x[4:0]),
 
     .alu_result(alu_result)
-)
+);
 
 // DATA MEMORY MUX
 

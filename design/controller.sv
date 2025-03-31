@@ -30,10 +30,7 @@ typedef enum logic [6:0]{
 } opcode_t;
 
 typedef enum logic [1:0]{  
-    ALU_MATH = 2'b00,
-    ALU_MATH = 2'b00,
-    ALU_MATH = 2'b00,
-    ALU_MATH = 2'b00,
+    ALU_MATH = 2'b00
 } alu_state_t;
 
 typedef enum logic [2:0]{
@@ -44,7 +41,7 @@ typedef enum logic [2:0]{
     F3_XOR = 3'b100,
     F3_SRL_SRA= 3'b101,
     F3_OR = 3'b110,
-    F3_AND = 3'b111,
+    F3_AND = 3'b111
 } funct3_t;
 
 typedef enum {ALU_ADD, ALU_SUB, ALU_AND, ALU_OR, ALU_XOR} alu_control_t;
@@ -78,7 +75,7 @@ always_comb begin
         alu_state = 2'd0;
         reg_data_sel = 2'd0;
     end
-        default: 
+        // default: 
     endcase
     
 end
@@ -103,11 +100,11 @@ always_comb begin
             F3_AND : begin
                 alu_control = ALU_AND;
             end
-                default: 
+                // default: 
             endcase
             end
     end 
-        default: 
+        // default: 
     endcase 
 end
     

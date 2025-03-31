@@ -24,13 +24,13 @@ end
 
 logic [DATA_WIDTH - 1 : 0] array_reg [0: 2** ADDR_WIDTH - 1];
 
-always_ff @( posedge clk ) begin
-    if (reset == 1'b0) begin
-        for (int i = 0; i < 2** ADDR_WIDTH; i++) begin
-            array_reg[i] <= 32'd0;
-        end
-    end
-    else if (write_enable)
+always @( posedge clk ) begin
+    // if (reset == 1'b0) begin
+    //     for (int i = 0; i < 2** ADDR_WIDTH; i++) begin
+    //         array_reg[i] <= 32'd0;
+    //     end
+    // end
+    if (write_enable)
         array_reg[address] <= data_in;
 end
 

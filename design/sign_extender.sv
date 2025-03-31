@@ -1,7 +1,7 @@
 module sign_extender (
     input logic [24:0] immi_source,
     input logic [6:0] opcode,
-    output logic [31:0]immi_x
+    output logic [31:0]imm_x
 );
 
 typedef enum logic [6:0]{  
@@ -16,8 +16,8 @@ typedef enum logic [6:0]{
 always_comb begin
     case (opcode)
     OPCODE_I_TYPE : imm_x = {{20{immi_source[24]}}, immi_source[24:13]};
-    OPCODE_U_TYPE_LUI, OPCODE_U_TYPE_AUI : imm_x = {immi_source[24:5], 12'b000000000000}
-        default: 
+    OPCODE_U_TYPE_LUI, OPCODE_U_TYPE_AUI : imm_x = {immi_source[24:5], 12'b000000000000};
+        // default: 
     endcase
 end
     
