@@ -33,7 +33,8 @@ logic pc_next_sel;
 logic pc_clk;
 logic [31:0] imm_x;
 logic [1:0]reg_data_sel;
-
+logic zero;
+logic last_bit;
 
 /*
 // PROGRAM COUNTER
@@ -183,7 +184,9 @@ alu alu(
     .operand2(operand2),
     .shamt(imm_x[4:0]),
 
-    .alu_result(alu_result)
+    .alu_result(alu_result),
+    .zero(zero),
+    .last_bit(last_bit)
 );
 
 // DATA MEMORY MUX

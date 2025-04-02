@@ -1,0 +1,8 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1743615922" />
+    <testcase name="cpu_insrt_test" classname="test_cpu" file="/foss/designs/tb/cpu/test_cpu.py" lineno="25" time="0.001047372817993164" sim_time_ns="3.001" ratio_time="2865.264353289324">
+      <failure message="Test failed with RANDOM_SEED=1743615922" />
+    </testcase>
+  </testsuite>
+</testsuites>
